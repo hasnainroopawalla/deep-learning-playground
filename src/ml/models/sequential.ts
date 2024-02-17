@@ -11,6 +11,10 @@ export class Sequential {
 
   public summary(): void {}
 
+  public compile(): void {
+    this.layers.map((layer) => layer.initializeParams());
+  }
+
   public add(layer: Layer): void {
     this.layers.push(layer);
   }
