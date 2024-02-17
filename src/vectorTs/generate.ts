@@ -16,3 +16,10 @@ export const xavierInitialization = (
     )
   );
 };
+
+export const zeros = (numRows: number, numCols: number): Vector2D =>
+  vectorTs.create2D(
+    Array.from({ length: numRows }, () =>
+      Array.from({ length: numCols }, () => 0)
+    )
+  );

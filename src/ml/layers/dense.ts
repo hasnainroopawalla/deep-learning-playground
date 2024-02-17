@@ -1,4 +1,4 @@
-import { vectorTs, type Vector2D } from "../../vectorTs";
+import { vectorTs } from "../../vectorTs";
 import { Layer } from "./base-layer";
 
 export class Dense extends Layer {

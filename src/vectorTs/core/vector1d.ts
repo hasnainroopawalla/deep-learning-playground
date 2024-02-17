@@ -7,6 +7,8 @@ export class Vector1D extends Vector<IVector1D> {
     super(data);
   }
 
+  public dot() {}
+
   get shape() {
     return [this.data.length];
   }

@@ -15,7 +15,18 @@ const startTraining = (setCurrentEpoch: (_epoch: number) => void) => {
 const vectorStuff = () => {
   const model = new Sequential();
   model.add(new Dense(3, 18));
-  model.compile();
+
+  const v1 = vectorTs.create2D([
+    [1, 2, 3],
+    [4, 5, 6],
+  ]);
+  const v2 = vectorTs.create2D([
+    [7, 8],
+    [9, 10],
+    [11, 12],
+  ]);
+
+  console.log("final", v1.dot(v2));
 };
 
 export const App: React.FC = () => {

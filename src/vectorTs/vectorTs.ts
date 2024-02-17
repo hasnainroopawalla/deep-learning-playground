@@ -1,12 +1,10 @@
-import {
-  createVector1DFromArray,
-  createVector2DFromArray,
-} from "./createVectorFromArray";
-import { xavierInitialization } from "./generate";
+import { arrayToVector1D, arrayToVector2D } from "./createVectorFromArray";
+import { xavierInitialization, zeros } from "./generate";
 
 export const vectorTs = {
-  create1D: createVector1DFromArray,
-  create2D: createVector2DFromArray,
+  create1D: arrayToVector1D,
+  create2D: arrayToVector2D,
+  zeros: zeros,
 
   random: {
     xavier: xavierInitialization,
