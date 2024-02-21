@@ -13,20 +13,21 @@ const startTraining = (setCurrentEpoch: (_epoch: number) => void) => {
 };
 
 const vectorStuff = () => {
+  const inputData = vectorTs.create2D([
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 1],
+  ]);
+  const outputLabels = vectorTs.create2D([[0], [1], [1], [0]]);
+
   const model = new Sequential();
-  model.add(new Dense(3, 18));
 
-  const v1 = vectorTs.create2D([
-    [1, 2, 3],
-    [4, 5, 6],
-  ]);
-  const v2 = vectorTs.create2D([
-    [7, 8],
-    [9, 10],
-    [11, 12],
-  ]);
+  model.add(new Dense(2, 3));
+  model.add(new Dense(3, 5));
+  model.compile();
 
-  console.log("final", v1.dot(v2));
+  model.fit(inputData, outputLabels);
 };
 
 export const App: React.FC = () => {

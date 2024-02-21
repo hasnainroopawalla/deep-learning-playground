@@ -1,3 +1,5 @@
+import { Vector2D } from "../../vectorTs";
+
 export abstract class Layer {
   // Number of inputs (same as outputSize of previous layer)
   protected inputSize: number;
@@ -11,7 +13,7 @@ export abstract class Layer {
 
   public initializeParams() {}
 
-  public forward() {}
+  public abstract forward(_inputData: Vector2D): Vector2D;
 
   public backward() {}
 }

@@ -16,7 +16,7 @@ export class Vector2D extends Vector<IVector2D> {
       throw new Error("Incompatible matrix dimensions");
     }
 
-    const result = vectorTs.zeros(numRows1, numCols2);
+    const result = vectorTs.zeros2D(numRows1, numCols2);
 
     for (let i = 0; i < numRows1; i++) {
       for (let j = 0; j < numCols2; j++) {
