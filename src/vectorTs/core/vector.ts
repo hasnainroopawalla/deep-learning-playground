@@ -1,5 +1,3 @@
-import { Vector2D } from "./vector2d";
-
 export abstract class Vector<T> {
   data: T;
 

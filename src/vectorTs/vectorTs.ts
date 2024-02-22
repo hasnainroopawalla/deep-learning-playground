@@ -1,6 +1,11 @@
-import { arrayToVector1D, arrayToVector2D } from "./arrayToVector";
-import { sum } from "./core/utils";
-import { xavierInitialization, zeros1D, zeros2D } from "./create";
+import { sub, sum } from "./math";
+import {
+  arrayToVector1D,
+  arrayToVector2D,
+  xavierInitialization,
+  zeros1D,
+  zeros2D,
+} from "./adapters";
 
 export const vectorTs = {
   create1D: arrayToVector1D,
@@ -13,6 +18,7 @@ export const vectorTs = {
   },
 
   math: {
-    sum: sum,
+    sum,
+    sub,
   },
 };
