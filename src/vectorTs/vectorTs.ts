@@ -1,4 +1,4 @@
-import { sub, sum } from "./math";
+import { sub, sum, multiply, clip, log, add, mean, negative } from "./math";
 import {
   arrayToVector1D,
   arrayToVector2D,
@@ -17,8 +17,17 @@ export const vectorTs = {
     xavier: xavierInitialization,
   },
 
-  math: {
-    sum,
-    sub,
-  },
+  // arithmetic
+  add,
+  sub,
+  multiply,
+  negative,
+
+  // summarize
+  sum,
+  mean,
+
+  // operations
+  log,
+  clip,
 };

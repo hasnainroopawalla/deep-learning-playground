@@ -1,4 +1,4 @@
-import { numberToVector2D } from "../adapters/toVector";
+// import { numberToVector2D } from "../adapters/toVector";
 import { vectorTs } from "../vectorTs";
 import { Vector } from "./vector";
 
@@ -28,36 +28,6 @@ export class Vector2D extends Vector<IVector2D> {
     }
 
     return result;
-  }
-
-  public add(vector: Vector2D) {
-    const [numRows1, numCols1] = this.shape;
-    const [numRows2, numCols2] = vector.shape;
-
-    if (numRows1 !== numRows2 || numCols1 !== numCols2) {
-      throw new Error("Incompatible matrix dimensions");
-    }
-
-    const result = vectorTs.zeros2D(numRows1, numCols1);
-
-    for (let i = 0; i < numRows1; i++) {
-      for (let j = 0; j < numCols1; j++) {
-        result.data[i][j] += this.data[i][j] + vector.data[i][j];
-      }
-    }
-
-    return result;
-  }
-
-  public sub(vectorOrNumber: number | Vector2D): Vector2D {
-    const [numRows1, numCols1] = this.shape;
-
-    const vector2 =
-      typeof vectorOrNumber === "number"
-        ? numberToVector2D(vectorOrNumber, numRows1, numCols1)
-        : vectorOrNumber;
-
-    return vectorTs.math.sub(this, vector2);
   }
 
   get shape() {
