@@ -3,7 +3,7 @@ import { Vector2D, vectorTs } from "../../vectorTs";
 export class BinaryCrossEntropy {
   constructor() {}
 
-  public objective(actual: Vector2D, predicted: Vector2D) {
+  public objective(actual: Vector2D, predicted: Vector2D): number {
     const clippedPredicted = vectorTs.clip(predicted, 1e-7, 1 - 1e-7);
 
     // term0 = (1 - actual) * log(1 - predicted)
@@ -19,8 +19,8 @@ export class BinaryCrossEntropy {
     );
 
     // -mean(term1 + term2, axis=0)
-    return vectorTs.negative(
-      vectorTs.mean(vectorTs.add(term0, term1), "column")
-    );
+    return vectorTs
+      .negative(vectorTs.mean(vectorTs.add(term0, term1), "column"))
+      .value();
   }
 }

@@ -1,4 +1,3 @@
-// import { numberToVector2D } from "../adapters/toVector";
 import { vectorTs } from "../vectorTs";
 import { Vector } from "./vector";
 
@@ -28,6 +27,10 @@ export class Vector2D extends Vector<IVector2D> {
     }
 
     return result;
+  }
+
+  public value(): number {
+    return this.data[0][0];
   }
 
   get shape() {

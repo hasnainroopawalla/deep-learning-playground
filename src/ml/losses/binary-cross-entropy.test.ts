@@ -1,6 +1,5 @@
 import { vectorTs } from "../../vectorTs";
-import { arrayToVector2D } from "../../vectorTs/adapters";
-import { vectorsStrictEqual } from "../../vectorTs/test-utils";
+import { floatValueApproxEqual } from "../../vectorTs/test-utils";
 import { BinaryCrossEntropy } from "./binary-cross-entropy";
 
 describe("BinaryCrossEntropy", () => {
@@ -9,8 +8,9 @@ describe("BinaryCrossEntropy", () => {
       const actual = vectorTs.create2D([[1], [1], [1]]);
       const predicted = vectorTs.create2D([[1], [1], [0]]);
 
-      const result = arrayToVector2D([[5.141649490132791]]);
-      vectorsStrictEqual(
+      const result = 5.141649490132791;
+
+      floatValueApproxEqual(
         new BinaryCrossEntropy().objective(actual, predicted),
         result
       );
@@ -20,8 +20,9 @@ describe("BinaryCrossEntropy", () => {
       const actual = vectorTs.create2D([[0], [1], [0], [1]]);
       const predicted = vectorTs.create2D([[0], [1], [0], [1]]);
 
-      const result = arrayToVector2D([[0]]);
-      vectorsStrictEqual(
+      const result = 0;
+
+      floatValueApproxEqual(
         new BinaryCrossEntropy().objective(actual, predicted),
         result
       );

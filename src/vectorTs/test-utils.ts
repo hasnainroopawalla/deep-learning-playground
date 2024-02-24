@@ -1,5 +1,8 @@
 import type { Vector2D } from "./core";
 
+export const floatValueApproxEqual = (received: number, expected: number) =>
+  expect(received).toBeCloseTo(expected, 8);
+
 export const vectorsStrictEqual = (vector1: Vector2D, vector2: Vector2D) => {
   const [numRows1, numCols1] = vector1.shape;
   const [numRows2, numCols2] = vector2.shape;
@@ -14,7 +17,7 @@ export const vectorsStrictEqual = (vector1: Vector2D, vector2: Vector2D) => {
       if (isNaN(v1)) {
         expect(v2).toBeNaN();
       } else {
-        expect(v1).toBeCloseTo(v2, 8);
+        floatValueApproxEqual(v1, v2);
       }
     }
   }
