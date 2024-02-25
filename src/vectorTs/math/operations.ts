@@ -37,3 +37,18 @@ export const clip = (
 
   return result;
 };
+
+// numpy.exp: https://numpy.org/doc/stable/reference/generated/numpy.exp.html
+export const exp = (vector: Vector2D) => {
+  const [numRows, numCols] = vector.shape;
+
+  const result = zeros2D(numRows, numCols);
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      result.data[i][j] = Math.exp(vector.data[i][j]);
+    }
+  }
+
+  return result;
+};

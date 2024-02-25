@@ -29,7 +29,7 @@ export class Vector2D extends Vector<IVector2D> {
     return result;
   }
 
-  public value(): number {
+  public squeeze(): number {
     return this.data[0][0];
   }
 

@@ -15,5 +15,5 @@ export abstract class Layer {
 
   public abstract forward(_inputData: Vector2D): Vector2D;
 
-  public backward() {}
+  public abstract backward(_inputData: Vector2D): Vector2D;
 }

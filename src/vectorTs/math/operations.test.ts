@@ -1,6 +1,6 @@
 import { arrayToVector2D } from "../adapters";
 import { vectorsStrictEqual } from "../test-utils";
-import { clip, log } from "./operations";
+import { clip, exp, log } from "./operations";
 
 describe("operations", () => {
   describe("log", () => {
@@ -48,6 +48,40 @@ describe("operations", () => {
       const vector = arrayToVector2D([[1], [1], [0]]);
       const result = arrayToVector2D([[0.9999999], [0.9999999], [1e-7]]);
       vectorsStrictEqual(clip(vector, 1e-7, 1 - 1e-7), result);
+    });
+  });
+
+  describe.only("exp", () => {
+    test("3x1", () => {
+      const vector = arrayToVector2D([[1], [1], [0]]);
+      const result = arrayToVector2D([[2.71828183], [2.71828183], [1]]);
+
+      vectorsStrictEqual(exp(vector), result);
+    });
+
+    test("2x2", () => {
+      const vector = arrayToVector2D([
+        [1, 2],
+        [3, 4],
+      ]);
+      const result = arrayToVector2D([
+        [2.71828183, 7.3890561],
+        [20.08553692, 54.59815003],
+      ]);
+
+      vectorsStrictEqual(exp(vector), result);
+    });
+
+    test("2x3", () => {
+      const vector = arrayToVector2D([
+        [3, 6, 2],
+        [-2, -5, 4],
+      ]);
+      const result = arrayToVector2D([
+        [20.085536923187668, 403.4287934927351, 7.3890561],
+        [0.135335283, 0.006737947, 54.598150033144236],
+      ]);
+      vectorsStrictEqual(exp(vector), result);
     });
   });
 });

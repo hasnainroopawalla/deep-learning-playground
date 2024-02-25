@@ -21,6 +21,6 @@ export class BinaryCrossEntropy {
     // -mean(term1 + term2, axis=0)
     return vectorTs
       .negative(vectorTs.mean(vectorTs.add(term0, term1), "column"))
-      .value();
+      .squeeze();
   }
 }

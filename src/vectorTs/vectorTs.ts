@@ -1,4 +1,15 @@
-import { sub, sum, multiply, clip, log, add, mean, negative } from "./math";
+import {
+  sub,
+  sum,
+  multiply,
+  clip,
+  log,
+  add,
+  mean,
+  negative,
+  divide,
+  exp,
+} from "./math";
 import {
   arrayToVector1D,
   arrayToVector2D,
@@ -21,6 +32,7 @@ export const vectorTs = {
   add,
   sub,
   multiply,
+  divide,
   negative,
 
   // summarize
@@ -30,4 +42,5 @@ export const vectorTs = {
   // operations
   log,
   clip,
+  exp,
 };
