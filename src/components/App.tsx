@@ -3,6 +3,7 @@ import { startTrainingGenerator } from "../ml";
 import { vectorTs } from "../vectorTs";
 import { Sequential } from "../ml/models";
 import { Dense } from "../ml/layers";
+import { Sigmoid } from "../ml/layers/activation";
 
 const startTraining = (setCurrentEpoch: (_epoch: number) => void) => {
   const gen = startTrainingGenerator(1000);
@@ -24,7 +25,9 @@ const vectorStuff = () => {
   const model = new Sequential();
 
   model.add(new Dense(2, 3));
+  model.add(new Sigmoid());
   model.add(new Dense(3, 5));
+  model.add(new Sigmoid());
   model.compile();
 
   model.fit(inputData, outputLabels);

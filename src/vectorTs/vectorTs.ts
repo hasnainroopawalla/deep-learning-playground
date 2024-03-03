@@ -9,6 +9,8 @@ import {
   negative,
   divide,
   exp,
+  abs,
+  maximum,
 } from "./math";
 import {
   arrayToVector1D,
@@ -43,4 +45,6 @@ export const vectorTs = {
   log,
   clip,
   exp,
+  maximum,
+  abs,
 };

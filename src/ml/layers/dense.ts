@@ -20,7 +20,7 @@ export class Dense extends Layer {
     return input.dot(this.weights); // TODO: add bias
   }
 
-  public backward(): void {
+  public backward(): Vector2D {
     // const oldWeights = this.weights;
     // const dw = this.layerInput.dot(backwardInput);
   }

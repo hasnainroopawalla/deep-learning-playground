@@ -2,10 +2,17 @@ import { zeros2D } from "../adapters";
 import { Vector2D } from "../core";
 
 // numpy.sum: https://numpy.org/doc/stable/reference/generated/numpy.sum.html
-export const sum = (vector: Vector2D, axis: "row" | "column"): Vector2D => {
+export const sum = <
+  T extends "row" | "column" | "all",
+  R = T extends "all" ? number : Vector2D
+>(
+  vector: Vector2D,
+  axis: T
+): R => {
   const [numRows, numCols] = vector.shape;
 
   const result = axis === "row" ? zeros2D(numRows, 1) : zeros2D(1, numCols);
+  let totalSum = 0;
 
   switch (axis) {
     case "row": // axis=1
@@ -23,8 +30,17 @@ export const sum = (vector: Vector2D, axis: "row" | "column"): Vector2D => {
         }
       }
       break;
+
+    default: // sum up all elements
+      for (let i = 0; i < numCols; i++) {
+        for (let j = 0; j < numRows; j++) {
+          totalSum += vector.data[j][i];
+        }
+      }
+      break;
   }
-  return result;
+
+  return axis === undefined ? (result as R) : (totalSum as R);
 };
 
 // numpy.mean: https://numpy.org/doc/stable/reference/generated/numpy.mean.html

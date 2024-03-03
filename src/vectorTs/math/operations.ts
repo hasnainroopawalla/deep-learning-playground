@@ -52,3 +52,33 @@ export const exp = (vector: Vector2D) => {
 
   return result;
 };
+
+// numpy.abs: https://numpy.org/doc/stable/reference/generated/numpy.abs.html
+export const abs = (vector: Vector2D) => {
+  const [numRows, numCols] = vector.shape;
+
+  const result = zeros2D(numRows, numCols);
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      result.data[i][j] = Math.abs(vector.data[i][j]);
+    }
+  }
+
+  return result;
+};
+
+// numpy.maximum: https://numpy.org/doc/stable/reference/generated/numpy.maximum.html
+export const maximum = (vector: Vector2D, value: number) => {
+  const [numRows, numCols] = vector.shape;
+
+  const result = zeros2D(numRows, numCols);
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      result.data[i][j] = Math.max(vector.data[i][j], value);
+    }
+  }
+
+  return result;
+};
