@@ -111,3 +111,40 @@ export const negative = (vector: Vector2D): Vector2D => {
 
   return result;
 };
+
+export const eq1 = (V1: Vector2D, equation: (_v1: number) => number) => {
+  const [numRows1, numCols1] = V1.shape;
+
+  const result = zeros2D(numRows1, numCols1);
+
+  for (let i = 0; i < numRows1; i++) {
+    for (let j = 0; j < numCols1; j++) {
+      result.data[i][j] = equation(V1.data[i][j]);
+    }
+  }
+
+  return result;
+};
+
+export const eq2 = (
+  V1: Vector2D,
+  V2: Vector2D,
+  equation: (_v1: number, _v2: number) => number
+) => {
+  const [numRows1, numCols1] = V1.shape;
+  const [numRows2, numCols2] = V2.shape;
+
+  if (numRows1 !== numRows2 || numCols1 !== numCols2) {
+    throw new Error("Incompatible matrix dimensions");
+  }
+
+  const result = zeros2D(numRows1, numCols1);
+
+  for (let i = 0; i < numRows1; i++) {
+    for (let j = 0; j < numCols1; j++) {
+      result.data[i][j] = equation(V1.data[i][j], V2.data[i][j]);
+    }
+  }
+
+  return result;
+};

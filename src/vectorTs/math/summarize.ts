@@ -40,7 +40,7 @@ export const sum = <
       break;
   }
 
-  return axis === undefined ? (result as R) : (totalSum as R);
+  return axis === "all" ? (totalSum as R) : (result as R);
 };
 
 // numpy.mean: https://numpy.org/doc/stable/reference/generated/numpy.mean.html

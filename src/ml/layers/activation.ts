@@ -8,15 +8,12 @@ export class Sigmoid extends Layer {
 
   public forward(inputData: Vector2D): Vector2D {
     // eq: 1 / (1 + exp(-X))
-    return vectorTs.divide(
-      1,
-      vectorTs.add(1, vectorTs.exp(vectorTs.negative(inputData)))
-    );
+    return vectorTs.eq1(inputData, (x) => 1 / (1 + Math.exp(-x)));
   }
 
   public backward(inputData: Vector2D): Vector2D {
-    const forward = this.forward(inputData);
     // eq: forward(X) * (1 - forward(X))
-    return vectorTs.multiply(forward, vectorTs.sub(1, forward));
+    const forward = this.forward(inputData);
+    return vectorTs.eq1(forward, (x) => x * (1 - x));
   }
 }

@@ -11,6 +11,8 @@ import {
   exp,
   abs,
   maximum,
+  eq1,
+  eq2,
 } from "./math";
 import {
   arrayToVector1D,
@@ -36,6 +38,8 @@ export const vectorTs = {
   multiply,
   divide,
   negative,
+  eq1,
+  eq2,
 
   // summarize
   sum,
