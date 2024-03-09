@@ -26,7 +26,7 @@ const vectorStuff = () => {
 
   model.add(new Dense(2, 3));
   model.add(new Sigmoid());
-  model.add(new Dense(3, 5));
+  model.add(new Dense(3, 1));
   model.add(new Sigmoid());
   model.compile();
 

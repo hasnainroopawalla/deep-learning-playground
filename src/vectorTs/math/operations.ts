@@ -1,4 +1,4 @@
-import { zeros2D } from "../adapters";
+import { arrayToVector2D, zeros2D } from "../adapters";
 import { Vector2D } from "../core";
 
 // numpy.log: https://numpy.org/doc/stable/reference/generated/numpy.log.html
@@ -21,7 +21,7 @@ export const clip = (
   vector: Vector2D,
   vectorMin: number,
   vectorMax: number
-) => {
+): Vector2D => {
   const [numRows, numCols] = vector.shape;
 
   const result = zeros2D(numRows, numCols);
@@ -39,7 +39,7 @@ export const clip = (
 };
 
 // numpy.exp: https://numpy.org/doc/stable/reference/generated/numpy.exp.html
-export const exp = (vector: Vector2D) => {
+export const exp = (vector: Vector2D): Vector2D => {
   const [numRows, numCols] = vector.shape;
 
   const result = zeros2D(numRows, numCols);
@@ -54,7 +54,7 @@ export const exp = (vector: Vector2D) => {
 };
 
 // numpy.abs: https://numpy.org/doc/stable/reference/generated/numpy.abs.html
-export const abs = (vector: Vector2D) => {
+export const abs = (vector: Vector2D): Vector2D => {
   const [numRows, numCols] = vector.shape;
 
   const result = zeros2D(numRows, numCols);
@@ -81,4 +81,10 @@ export const maximum = (vector: Vector2D, value: number) => {
   }
 
   return result;
+};
+
+export const transpose = (vector: Vector2D): Vector2D => {
+  return arrayToVector2D(
+    vector.data[0].map((_, colIndex) => vector.data.map((row) => row[colIndex]))
+  );
 };

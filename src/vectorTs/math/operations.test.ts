@@ -1,6 +1,6 @@
 import { arrayToVector2D } from "../adapters";
 import { vectorsStrictEqual } from "../test-utils";
-import { clip, exp, log } from "./operations";
+import { clip, exp, log, transpose } from "./operations";
 
 describe("operations", () => {
   describe("log", () => {
@@ -51,7 +51,7 @@ describe("operations", () => {
     });
   });
 
-  describe.only("exp", () => {
+  describe("exp", () => {
     test("3x1", () => {
       const vector = arrayToVector2D([[1], [1], [0]]);
       const result = arrayToVector2D([[2.71828183], [2.71828183], [1]]);
@@ -82,6 +82,54 @@ describe("operations", () => {
         [0.135335283, 0.006737947, 54.598150033144236],
       ]);
       vectorsStrictEqual(exp(vector), result);
+    });
+  });
+
+  describe("transpose", () => {
+    test("3x2", () => {
+      const vector = arrayToVector2D([
+        [1, 4],
+        [5, 2],
+        [6, -4],
+      ]);
+      const result = arrayToVector2D([
+        [1, 5, 6],
+        [4, 2, -4],
+      ]);
+
+      vectorsStrictEqual(transpose(vector), result);
+    });
+
+    test("2x2", () => {
+      const vector = arrayToVector2D([
+        [1, 2],
+        [3, 4],
+      ]);
+      const result = arrayToVector2D([
+        [1, 3],
+        [2, 4],
+      ]);
+
+      vectorsStrictEqual(transpose(vector), result);
+    });
+
+    test("2x3", () => {
+      const vector = arrayToVector2D([
+        [3, 6, 2],
+        [-2, -5, 4],
+      ]);
+      const result = arrayToVector2D([
+        [3, -2],
+        [6, -5],
+        [2, 4],
+      ]);
+      vectorsStrictEqual(transpose(vector), result);
+    });
+
+    test("1x4", () => {
+      const vector = arrayToVector2D([[1, 2, 3, 4]]);
+      const result = arrayToVector2D([[1], [2], [3], [4]]);
+      vectorsStrictEqual(transpose(vector), result);
     });
   });
 });

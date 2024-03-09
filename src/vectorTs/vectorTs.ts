@@ -13,6 +13,7 @@ import {
   maximum,
   eq1,
   eq2,
+  transpose,
 } from "./math";
 import {
   arrayToVector1D,
@@ -51,4 +52,5 @@ export const vectorTs = {
   exp,
   maximum,
   abs,
+  transpose,
 };
