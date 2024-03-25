@@ -1,5 +1,5 @@
 import * as React from "react";
-import { startTrainingGenerator } from "../ml";
+import { startTrainingGenerator } from "@dlp/ml";
 
 const startTraining = (setCurrentEpoch: (epoch: number) => void) => {
   const gen = startTrainingGenerator(1000);
