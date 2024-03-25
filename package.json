@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm run start --workspace @dlp/web",
+    "build": "npm run build --workspace @dlp/web",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts,.tsx"
